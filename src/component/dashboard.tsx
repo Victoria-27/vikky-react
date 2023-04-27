@@ -18,6 +18,17 @@ const FlightDashboardContainer = styled.div`
 const Table = styled.table`
   margin: 0 auto;
   font-weight: bold;
+  border-collapse: collapse;
+  width: 80%;
+`;
+
+const TableHeader = styled.th`
+  background-color: #f2f2f2;
+  padding: 12px;
+`;
+
+const TableData = styled.td`
+  padding: 12px;
 `;
 
 const FlightDashboard: React.FC<FlightDashboardProps> = ({ flights }) => {
@@ -27,17 +38,17 @@ const FlightDashboard: React.FC<FlightDashboardProps> = ({ flights }) => {
       <Table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Destination</th>
-            <th>Departure</th>
+            <TableHeader>ID</TableHeader>
+            <TableHeader>Destination</TableHeader>
+            <TableHeader>Departure</TableHeader>
           </tr>
         </thead>
         <tbody>
           {flights.map((flight) => (
             <tr key={flight.id}>
-              <td>{flight.id}</td>
-              <td>{flight.destination}</td>
-              <td>{flight.departure}</td>
+              <TableData>{flight.id}</TableData>
+              <TableData>{flight.destination}</TableData>
+              <TableData>{flight.departure}</TableData>
             </tr>
           ))}
         </tbody>
