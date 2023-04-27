@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 export interface Flight {
   id: string;
@@ -10,11 +11,20 @@ export interface FlightDashboardProps {
   flights: Flight[];
 }
 
+const FlightDashboardContainer = styled.div`
+  text-align: center;
+`;
+
+const Table = styled.table`
+  margin: 0 auto;
+  font-weight: bold;
+`;
+
 const FlightDashboard: React.FC<FlightDashboardProps> = ({ flights }) => {
   return (
-    <div>
+    <FlightDashboardContainer>
       <h2>Flight Dashboard</h2>
-      <table>
+      <Table>
         <thead>
           <tr>
             <th>ID</th>
@@ -31,8 +41,8 @@ const FlightDashboard: React.FC<FlightDashboardProps> = ({ flights }) => {
             </tr>
           ))}
         </tbody>
-      </table>
-    </div>
+      </Table>
+    </FlightDashboardContainer>
   );
 };
 

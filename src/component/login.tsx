@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
-export interface LoginProps {
+interface LoginProps {
   onLogin: (username: string, password: string) => void;
 }
+
+const LoginContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-weight: bold;
+`;
 
 const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -13,7 +23,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
   };
 
   return (
-    <div>
+    <LoginContainer>
       <h2>Login</h2>
       <div>
         <label htmlFor='username'>Username:</label>
@@ -24,7 +34,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       <button onClick={handleLogin}>Login</button>
-    </div>
+    </LoginContainer>
   );
 };
 
